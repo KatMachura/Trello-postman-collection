@@ -1,0 +1,835 @@
+{
+	"info": {
+		"_postman_id": "a2abb1b3-aa2a-4819-b6fc-90e7a1c72331",
+		"name": "Trello cv collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25802185"
+	},
+	"item": [
+		{
+			"name": "nowy board",
+			"item": [
+				{
+					"name": "Utworzenie nowej tablicy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"new_board_id\"), jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base url}}/1/boards/?name=Trello cv&key={{key}}&token={{token}}",
+							"host": [
+								"{{base url}}"
+							],
+							"path": [
+								"1",
+								"boards",
+								""
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Trello cv"
+								},
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Listy",
+			"item": [
+				{
+					"name": "Utworzenie listy nr 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"lista_nr_1_id\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base url}}/1/lists?name=nr_1&idBoard={{new_board_id}}&key={{key}}&token={{token}}",
+							"host": [
+								"{{base url}}"
+							],
+							"path": [
+								"1",
+								"lists"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "nr_1"
+								},
+								{
+									"key": "idBoard",
+									"value": "{{new_board_id}}"
+								},
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Utworzenie listy nr 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"lista nr 2_id\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base url}}/1/lists?name=nr 2&idBoard={{new_board_id}}&key={{key}}&token={{token}}",
+							"host": [
+								"{{base url}}"
+							],
+							"path": [
+								"1",
+								"lists"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "nr 2"
+								},
+								{
+									"key": "idBoard",
+									"value": "{{new_board_id}}"
+								},
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Utworzenie listy nr 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"lista_nr_3_id\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base url}}/1/lists?name=nr 3&idBoard={{new_board_id}}&key={{key}}&token={{token}}",
+							"host": [
+								"{{base url}}"
+							],
+							"path": [
+								"1",
+								"lists"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "nr 3"
+								},
+								{
+									"key": "idBoard",
+									"value": "{{new_board_id}}"
+								},
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Archiwizacja listy nr 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404;\r",
+									"});\r",
+									"pm.test(\"check closed value is true\"), function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"pm.expect(jsonData.closed).to.eql(true);\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base url}}/1/lists/{{lista_nr_1_id}}/closed?key={{key}}&value=true&token={{token}}",
+							"host": [
+								"{{base url}}"
+							],
+							"path": [
+								"1",
+								"lists",
+								"{{lista_nr_1_id}}",
+								"closed"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "value",
+									"value": "true"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aktualizacja listy nr 2 na nr 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"lista nr 4\", jsonData.id);\r",
+									"\r",
+									"pm.test(\"Card name should be updated\", function () {\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.expect(jsonData.name).to.eql(\"lista nr 4\"); });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base url}}/1/lists/{{lista_nr_3_id}}?key={{key}}&token={{token}}&name=lista nr 4",
+							"host": [
+								"{{base url}}"
+							],
+							"path": [
+								"1",
+								"lists",
+								"{{lista_nr_3_id}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "lista nr 4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Karty",
+			"item": [
+				{
+					"name": "Utworzenie karty nr 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"karta nr 1\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base url}}/1/cards?idList={{lista nr 2_id}}&key={{key}}&token={{token}}&name=karta nr 1",
+							"host": [
+								"{{base url}}"
+							],
+							"path": [
+								"1",
+								"cards"
+							],
+							"query": [
+								{
+									"key": "idList",
+									"value": "{{lista nr 2_id}}"
+								},
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "karta nr 1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Utworzenie karty nr 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"karta nr 2\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base url}}/1/cards?idList={{lista nr 2_id}}&key={{key}}&token={{token}}&name=karta nr 2",
+							"host": [
+								"{{base url}}"
+							],
+							"path": [
+								"1",
+								"cards"
+							],
+							"query": [
+								{
+									"key": "idList",
+									"value": "{{lista nr 2_id}}"
+								},
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "karta nr 2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Utworzenie karty nr 3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"karta nr 3\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base url}}/1/cards?idList={{lista nr 2_id}}&key={{key}}&token={{token}}&name=karta nr 3",
+							"host": [
+								"{{base url}}"
+							],
+							"path": [
+								"1",
+								"cards"
+							],
+							"query": [
+								{
+									"key": "idList",
+									"value": "{{lista nr 2_id}}"
+								},
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "karta nr 3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Utworzenie karty nr 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"karta nr 4\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base url}}/1/cards?idList={{lista nr 2_id}}&key={{key}}&token={{token}}&name=karta nr 4",
+							"host": [
+								"{{base url}}"
+							],
+							"path": [
+								"1",
+								"cards"
+							],
+							"query": [
+								{
+									"key": "idList",
+									"value": "{{lista nr 2_id}}"
+								},
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "karta nr 4"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Utworzenie karty nr 5",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.environment.set(\"karta nr 5\", jsonData.id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base url}}/1/cards?idList={{lista nr 2_id}}&key={{key}}&token={{token}}&name=karta nr 5",
+							"host": [
+								"{{base url}}"
+							],
+							"path": [
+								"1",
+								"cards"
+							],
+							"query": [
+								{
+									"key": "idList",
+									"value": "{{lista nr 2_id}}"
+								},
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "karta nr 5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Aktualizacja karty nr 5 na 5.1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"List name should be updated\", function () {\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.expect(jsonData.name).to.eql(\"karta_nr_5.1\"); \r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base url}}/1/cards/{{karta nr 5}}?key={{key}}&token={{token}}&name=karta nr 5.1",
+							"host": [
+								"{{base url}}"
+							],
+							"path": [
+								"1",
+								"cards",
+								"{{karta nr 5}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "karta nr 5.1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuniecie karty nr 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404;\r",
+									"});\r",
+									"pm.test(\"check closed value is true\"), function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"pm.expect(jsonData.closed).to.eql(true);\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base url}}/1/cards/{{karta nr 4}}?key={{key}}&token={{token}}",
+							"host": [
+								"{{base url}}"
+							],
+							"path": [
+								"1",
+								"cards",
+								"{{karta nr 4}}"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Archiwizacja karta nr 2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", function () {\r",
+									"    pm.response.to.have.status(404);\r",
+									"});\r",
+									"pm.test(\"check closed value is true\"), function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"pm.expect(jsonData.closed).to.eql(true);\r",
+									"};"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base url}}/1/cards/{{karta nr 2}}/closed?key={{key}}&token={{token}}&value=true",
+							"host": [
+								"{{base url}}"
+							],
+							"path": [
+								"1",
+								"cards",
+								"{{karta nr 2}}",
+								"closed"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "value",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "przeniesienie karty nr 3 na liste nr 4",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Karta nr 2 on the list nr 4\", function () {\r",
+									"    const data = pm.response.json();\r",
+									"    pm.expect(data.idList).to.eql(pm.environment.get(\"lista_nr_4\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{base url}}/1/cards/{{karta nr 3}}?idList={{lista_nr_4}}&key={{key}}&token={{token}}",
+							"host": [
+								"{{base url}}"
+							],
+							"path": [
+								"1",
+								"cards",
+								"{{karta nr 3}}"
+							],
+							"query": [
+								{
+									"key": "idList",
+									"value": "{{lista_nr_4}}"
+								},
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "utworzenie checklist nr na karta nr 1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"checklist created on karta nr 1\", function () {\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.expect(jsonData.name).to.eql(\"checkilist nr 1\"); });"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{base url}}/1/cards/{{karta nr 1}}/checklists?key={{key}}&token={{token}}&name=checklist nr 1",
+							"host": [
+								"{{base url}}"
+							],
+							"path": [
+								"1",
+								"cards",
+								"{{karta nr 1}}",
+								"checklists"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "{{key}}"
+								},
+								{
+									"key": "token",
+									"value": "{{token}}"
+								},
+								{
+									"key": "name",
+									"value": "checklist nr 1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
